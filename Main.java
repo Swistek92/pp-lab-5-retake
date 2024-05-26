@@ -1,4 +1,5 @@
 import store.*;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,12 +18,11 @@ public class Main {
         System.out.println(manager.getDetails());
         manager.work();
 
-        Salesperson salesperson1 = new Salesperson("Jon1", "Doe1", 201);
-        Salesperson salesperson2 = new Salesperson("Jon2", "Doe2", 202);
-        Salesperson salesperson3 = new Salesperson("Jon3", "Doe3", 203);
-        Salesperson salesperson4 = new Salesperson("Jon4", "Doe4", 204);
-
-        Salesperson salesperson5 = new Salesperson("Jon5", "Doe5", 205);
+        Salesperson salesperson1 = new Salesperson("Alice", "Smith", 201);
+        Salesperson salesperson2 = new Salesperson("Bob", "Johnson", 202);
+        Salesperson salesperson3 = new Salesperson("Charlie", "Brown", 203);
+        Salesperson salesperson4 = new Salesperson("Diana", "Ross", 204);
+        Salesperson salesperson5 = new Salesperson("Eve", "Davis", 205);
 
         System.out.println(salesperson1.getDetails());
         salesperson1.work();
@@ -66,5 +66,10 @@ public class Main {
 
         System.out.println("Employees in " + Store.getStoreName() + ":");
         store.displayEmployees();
+
+        // Calculate total sales
+        List<Product> products = store.getProducts();
+        double totalSales = StoreUtil.calculateTotalSales(products);
+        System.out.println("Total sales: " + totalSales + " chf");
     }
 }
