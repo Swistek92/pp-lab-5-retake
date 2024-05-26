@@ -1,32 +1,70 @@
-import store.Manager;
-import store.Product;
+import store.*;
 
 public class Main {
     public static void main(String[] args) {
+        Store store = new Store("Tech Superstore");
+
         Product product1 = new Product("Oracle Database", 100000.0, 1);
         Product product2 = new Product("SAP ERP", 200000.0, 2);
         Product product3 = new Product("Microsoft Dynamics", 150000.0, 3);
         Product product4 = new Product("IBM Cognos Analytics", 120000.0, 4);
         Product product5 = new Product("Autodesk Maya", 4500.0, 5);
 
-        product1.displayInfo();
-        product2.displayInfo();
-        product3.displayInfo();
-        product4.displayInfo();
-        product5.displayInfo();
-
         product5.setName("Adobe Photoshop");
         product5.setPrice(2500.0);
 
-        System.out.println("Updated fifth product information:");
-        System.out.println("Name: " + product5.getName());
-        System.out.println("Price: " + product5.getPrice());
-        System.out.println("ID: " + product5.getId());
-
         Manager manager = new Manager("Larry", "Fink", 101);
-
         System.out.println(manager.getDetails());
-
         manager.work();
+
+        Salesperson salesperson1 = new Salesperson("Jon1", "Doe1", 201);
+        Salesperson salesperson2 = new Salesperson("Jon2", "Doe2", 202);
+        Salesperson salesperson3 = new Salesperson("Jon3", "Doe3", 203);
+        Salesperson salesperson4 = new Salesperson("Jon4", "Doe4", 204);
+
+        Salesperson salesperson5 = new Salesperson("Jon5", "Doe5", 205);
+
+        System.out.println(salesperson1.getDetails());
+        salesperson1.work();
+        
+        System.out.println(salesperson2.getDetails());
+        salesperson2.work();
+        
+        System.out.println(salesperson3.getDetails());
+        salesperson3.work();
+        
+        System.out.println(salesperson4.getDetails());
+        salesperson4.work();
+        
+        System.out.println(salesperson5.getDetails());
+        salesperson5.work();
+
+        store.addProduct(product1);
+        store.addProduct(product2);
+        store.addProduct(product3);
+        store.addProduct(product4);
+        store.addProduct(product5);
+
+        store.addEmployee(manager);
+        store.addEmployee(salesperson1);
+        store.addEmployee(salesperson2);
+        store.addEmployee(salesperson3);
+        store.addEmployee(salesperson4);
+        store.addEmployee(salesperson5);
+
+        System.out.println("Products in " + Store.getStoreName() + ":");
+        store.displayProducts();
+
+        System.out.println("Employees in " + Store.getStoreName() + ":");
+        store.displayEmployees();
+
+        store.removeProduct(product5);
+        store.removeEmployee(salesperson5);
+
+        System.out.println("Products in " + Store.getStoreName() + ":");
+        store.displayProducts();
+
+        System.out.println("Employees in " + Store.getStoreName() + ":");
+        store.displayEmployees();
     }
 }
