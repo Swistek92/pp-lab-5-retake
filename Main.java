@@ -1,3 +1,4 @@
+import store.Manager;
 import store.Product;
 
 public class Main {
@@ -21,5 +22,11 @@ public class Main {
         System.out.println("Name: " + product5.getName());
         System.out.println("Price: " + product5.getPrice());
         System.out.println("ID: " + product5.getId());
+
+        Manager manager = new Manager("Larry", "Fink", 101);
+
+        System.out.println(manager.getDetails());
+
+        manager.work();
     }
 }
